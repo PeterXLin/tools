@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import MainPage from './page/MainPage';
+import Wheel from "./components/wheel"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
