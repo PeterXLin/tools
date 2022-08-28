@@ -115,8 +115,10 @@ export default function OptionsArea(props: { allOptions: Option[], setAllOptions
             <Button startIcon={<AddIcon />}
                 variant="contained"
                 onClick={addOptions}
-                sx={{ width: "90%", my: 3, mx: "5%", bgcolor: "primary.main", borderRadius: 3 }}>
-                add
+                sx={{ width: "90%", my: 3, mx: "5%", bgcolor: "primary.main", borderRadius: 3 }}
+                style={{ fontWeight: "bold", fontSize: "18px" }}
+            >
+                新增選項
             </Button>
         </Box>
     );

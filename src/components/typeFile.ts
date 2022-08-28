@@ -4,3 +4,8 @@ export type Option =  {
     weight: number,
     used: boolean,
 }
+
+export type SpinTheWheel = {
+    id: string,
+    title: string,
+}

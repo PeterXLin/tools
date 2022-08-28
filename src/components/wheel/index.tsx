@@ -11,11 +11,17 @@ import './index.css';
 //     used: boolean,
 // };
 
-const Wheel = (props: { items: Option[] }) => {
-    const { items } = props;
+const Wheel = (props: { items: Option[], currentWheelID: string }) => {
+    const { items, currentWheelID } = props;
+
+    useEffect(() => {
+        setSelectedItem(null);
+        setSelectedName("抽籤結果");
+    }, [currentWheelID]);
+
     const [selectedItem, setSelectedItem, selectedItemRef] = useState<null | number>(null);
     const [spinning, setSpinning] = useState<string>(selectedItem !== null ? 'spinning' : '');
-    const [selectedName, setSelectedName] = useState<string>("抽獎結果");
+    const [selectedName, setSelectedName] = useState<string>("抽籤結果");
     useEffect(() => {
         setSpinning(selectedItem !== null ? 'spinning' : '');
     }, [selectedItem]);
@@ -23,11 +29,11 @@ const Wheel = (props: { items: Option[] }) => {
     function selectItem(): void {
         if (selectedItemRef.current !== null) {
             setSelectedItem(null);
-            setSelectedName("抽獎結果");
+            setSelectedName("抽籤結果");
         } else {
             const tmp = Math.floor(Math.random() * items.length);
             setSelectedItem(tmp);
-            setTimeout(function () { setSelectedName(tmp !== null ? items[tmp].name : "抽獎結果") }, 4200);
+            setTimeout(function () { setSelectedName(tmp !== null ? items[tmp].name : "抽籤結果") }, 4200);
         }
     };
 
@@ -49,7 +55,9 @@ const Wheel = (props: { items: Option[] }) => {
             <Button
                 variant="contained"
                 sx={{ width: "40%", mx: "30%", mt: "20px" }}
+                style={{ fontSize: "20px", fontWeight: "bold" }}
                 color="primary"
+                size="large"
                 onClick={selectItem}>
                 {selectedItemRef.current !== null ? "重設" : "轉!"}
             </Button>
