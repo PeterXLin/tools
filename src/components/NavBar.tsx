@@ -10,10 +10,18 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from "react-router-dom";
 
-const pages = ['轉盤', '擲硬幣'];
+
+type Page = {
+    title: string,
+    url: string,
+};
+
+const pages: Page[] = [{ title: '轉盤', url: "/tools" }, { title: '擲硬幣', url: "/tools/coin" }];
 
 const NavBar = () => {
+    let navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -84,8 +92,8 @@ const NavBar = () => {
                         }}
                     >
                         {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{page}</Typography>
+                            <MenuItem key={page.url} onClick={() => navigate(page.url)}>
+                                <Typography textAlign="center">{page.title}</Typography>
                             </MenuItem>
                         ))}
                     </Menu>
@@ -111,12 +119,12 @@ const NavBar = () => {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {pages.map((page) => (
                         <Button
-                            key={page}
-                            onClick={handleCloseNavMenu}
+                            key={page.url}
+                            onClick={() => navigate(page.url)}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                             size="large"
                         >
-                            <Typography variant="h6">{page}</Typography>
+                            <Typography variant="h6">{page.title}</Typography>
                         </Button>
                     ))}
                 </Box>

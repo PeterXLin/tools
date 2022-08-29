@@ -5,7 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import MainPage from './page/MainPage';
-import Wheel from "./components/wheel"
+import FlipACoinPage from './page/FlipACoinPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,6 +17,7 @@ root.render(
     <Router>
       <Routes>
         <Route element={<MainPage />} path="/tools"></Route>
+        <Route element={<FlipACoinPage />} path="/tools/coin"></Route>
       </Routes>
     </Router>
   </React.StrictMode>

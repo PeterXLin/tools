@@ -70,7 +70,7 @@ export default function OptionsArea(props: { allOptions: Option[], setAllOptions
     }
 
     return (
-        <Box sx={{ mt: 5, width: "100%", maxWidth: 400, border: 5, borderColor: 'info.main', maxHeight: 600, borderRadius: 5 }}>
+        <Box sx={{ mt: 5, width: "80%", mx: "10%", maxWidth: 500, border: 5, borderColor: 'info.main', maxHeight: 600, borderRadius: 5 }}>
             <List sx={{
                 width: '90%', maxWidth: 400, overflow: 'auto', height: "80%",
                 maxHeight: 500, bgcolor: 'background.paper',
