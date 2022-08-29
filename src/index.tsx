@@ -16,7 +16,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route element={<MainPage />} path="/"></Route>
+        <Route element={<MainPage />} path="/tools"></Route>
       </Routes>
     </Router>
   </React.StrictMode>
